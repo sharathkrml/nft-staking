@@ -10,7 +10,7 @@ contract NFTeeStaker is ERC20, ERC721Holder {
     IERC721 public nft;
     mapping(uint256 => address) public tokenOwnerOf;
     mapping(uint256 => uint256) public tokenStakedAt;
-    uint256 public EMISSION_RATE = ((50 * 10) ^ decimals()) / 1 days; //per second => 50 token per day
+    uint256 public constant EMISSION_RATE = 1 wei; //1 wei per second
 
     constructor(address _nft) ERC20("NFTeeStaker", "NST") {
         nft = IERC721(_nft);
