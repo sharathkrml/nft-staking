@@ -4,7 +4,6 @@ import { HardhatRuntimeEnvironment } from "hardhat/types"
 const deployMyNft = async (hre: HardhatRuntimeEnvironment) => {
     const { getNamedAccounts, deployments } = hre
     const { deployer } = await getNamedAccounts()
-    console.log(network.name)
     const { log, deploy } = deployments
     const MyNft = await deploy("MyNft", {
         from: deployer,
@@ -14,4 +13,4 @@ const deployMyNft = async (hre: HardhatRuntimeEnvironment) => {
 }
 export default deployMyNft
 
-deployMyNft.tags = ["all"]
+deployMyNft.tags = ["all", "mynft"]
