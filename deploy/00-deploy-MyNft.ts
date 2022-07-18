@@ -1,18 +1,17 @@
 import { ethers, network } from "hardhat"
 import { HardhatRuntimeEnvironment } from "hardhat/types"
 
-const deployNFTee = async (hre: HardhatRuntimeEnvironment) => {
+const deployMyNft = async (hre: HardhatRuntimeEnvironment) => {
     const { getNamedAccounts, deployments } = hre
-    const { deployer, user } = await getNamedAccounts()
+    const { deployer } = await getNamedAccounts()
     console.log(network.name)
     const { log, deploy } = deployments
-    let args = [10]
-    const NFTee = await deploy("NFTee", {
+    const MyNft = await deploy("MyNft", {
         from: deployer,
         log: true,
-        args: args,
     })
+    log("-----------------------------------")
 }
-export default deployNFTee
+export default deployMyNft
 
-deployNFTee.tags = ["all"]
+deployMyNft.tags = ["all"]
